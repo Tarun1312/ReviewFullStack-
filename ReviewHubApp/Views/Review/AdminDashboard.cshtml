@@ -1,0 +1,15 @@
+﻿<h2>Admin Dashboard</h2>
+<h3>Users</h3>
+<ul>
+    @foreach (var user in Model.Users)
+    {
+        <li>@user.Email <button onclick="location.href='/Admin/DeleteUser/@user.UserId'">Delete</button></li>
+    }
+</ul>
+<h3>Reviews</h3>
+<ul>
+    @foreach (var review in Model.Reviews)
+    {
+        <li>@review.Content (@review.Category) <button onclick="location.href='/Admin/DeleteReview/@review.ReviewId'">Delete</button></li>
+    }
+</ul>
