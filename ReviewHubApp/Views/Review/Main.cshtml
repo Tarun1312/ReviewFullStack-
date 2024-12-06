@@ -1,0 +1,30 @@
+﻿@model List<string>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Write a Review</h2>
+
+<form asp-action="WriteReview" asp-controller="Review" method="post">
+    <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select id="category" name="category" class="form-select" required>
+            @foreach (var category in Model)
+            {
+                <option value="@category">@category</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="content" class="form-label">Review</label>
+        <textarea id="content" name="content" class="form-control" rows="3" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="number" id="rating" name="rating" class="form-control" min="1" max="5" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Review</button>
+</form>
