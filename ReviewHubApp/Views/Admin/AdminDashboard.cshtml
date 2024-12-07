@@ -1,0 +1,58 @@
+﻿@model ReviewHubApp.Models.AdminDashboardViewModel
+
+<h2>Admin Dashboard</h2>
+
+<h3>Users</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>
+                    <form method="post" asp-action="DeleteUser">
+                        <input type="hidden" name="id" value="@user.UserId" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Reviews</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Content</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var review in Model.Reviews)
+        {
+            <tr>
+                <td>@review.Category</td>
+                <td>@review.Content</td>
+                <td>@review.Rating</td>
+                <td>
+                    <a asp-action="EditReview" asp-route-id="@review.ReviewId" class="btn btn-warning">Edit</a>
+                    <form method="post" asp-action="DeleteReview" style="display:inline;">
+                        <input type="hidden" name="id" value="@review.ReviewId" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -12,8 +12,8 @@ using ReviewHubApp.Data;
 namespace ReviewHubApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241206194520_UpdateReviews")]
-    partial class UpdateReviews
+    [Migration("20241206232204_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

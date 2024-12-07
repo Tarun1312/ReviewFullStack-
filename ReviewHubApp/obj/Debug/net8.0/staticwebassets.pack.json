@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\ReviewHubApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Tarun\\source\\repos\\ReviewHubApp\\ReviewHubApp\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
+      "Id": "C:\\Users\\Tarun\\source\\repos\\ReviewHubApp\\ReviewHubApp\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
+      "Id": "C:\\Users\\Tarun\\source\\repos\\ReviewHubApp\\ReviewHubApp\\wwwroot\\css\\signup.css",
+      "PackagePath": "staticwebassets\\css\\signup.css"
+    },
+    {
       "Id": "C:\\Users\\Tarun\\source\\repos\\ReviewHubApp\\ReviewHubApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
