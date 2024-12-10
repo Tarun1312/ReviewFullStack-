@@ -1,0 +1,11 @@
+﻿@model List<string>
+
+<h2>Select a Category</h2>
+<div class="list-group">
+    @foreach (var category in Model)
+    {
+        <a href="/Review/WriteReview?category=@category" class="list-group-item list-group-item-action">
+            @category
+        </a>
+    }
+</div>

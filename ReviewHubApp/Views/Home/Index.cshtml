@@ -1,0 +1,71 @@
+﻿@model List<ReviewHubApp.Models.Review>
+
+<h2>Welcome to ReviewHub</h2>
+<p>Share your reviews and explore others' thoughts!</p>
+
+<!-- Games We Cover -->
+<h3 class="mt-4">Games We Cover</h3>
+<ul class="list-group mb-4">
+    <li class="list-group-item">Minecraft</li>
+    <li class="list-group-item">Super Smash Bros. Ultimate</li>
+    <li class="list-group-item">Fortnite</li>
+    <li class="list-group-item">Red Dead Redemption II</li>
+    <li class="list-group-item">Grand Theft Auto V</li>
+    <li class="list-group-item">Spider-Man</li>
+    <li class="list-group-item">Rocket League</li>
+    <li class="list-group-item">Among Us</li>
+    <li class="list-group-item">Roblox</li>
+    <li class="list-group-item">Call of Duty: Black Ops IIII</li>
+    <!-- Add more games -->
+</ul>
+
+<!-- Filter and Reviews -->
+<div class="filter-section">
+    <!-- Filter dropdown -->
+    <div>
+        <label for="categories" class="form-label">Filter by Category</label>
+        <select id="categories" class="form-select" onchange="location.href = this.value;">
+            <option value="@Url.Action("Index", "Home")" selected="@((ViewBag.SelectedCategory == null).ToString().ToLower())">
+                All Reviews
+            </option>
+            @foreach (var category in ViewBag.Categories as List<string>)
+            {
+                <option value="@Url.Action("Index", "Home", new { category = category })" selected="@((ViewBag.SelectedCategory == category).ToString().ToLower())">
+                    @category
+                </option>
+            }
+        </select>
+    </div>
+
+    <!-- Reviews Table -->
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered table-hover mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Category</th>
+                    <th>Content</th>
+                    <th>Rating</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var review in Model)
+                {
+                    <tr>
+                        <td>@review.Category</td>
+                        <td>@review.Content</td>
+                        <td>@review.Rating</td>
+                        <td>@review.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info mt-3" role="alert">
+            No reviews found for this category.
+        </div>
+    }
+</div>

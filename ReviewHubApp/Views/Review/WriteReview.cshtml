@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Write a Review</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <input type="text" class="form-control" id="category" name="category" value="@ViewBag.Category" readonly />
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Review Content</label>
+        <textarea class="form-control" id="content" name="content" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="rating" class="form-label">Rating (1-5)</label>
+        <input type="number" class="form-control" id="rating" name="rating" min="1" max="5" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Review</button>
+</form>
